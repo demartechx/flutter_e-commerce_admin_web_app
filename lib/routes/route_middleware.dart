@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 
 class TRouteMiddleware extends GetMiddleware {
 
-  @override
-  RouteSettings? redirect(String? route) {
-      final isAuthenticated = true;
-      return isAuthenticated ? null : RouteSettings(name: TRoutes.firstScreen);
-  }
+  // @override
+  // RouteSettings? redirect(String? route) {
+  //     final isAuthenticated = true;
+  //     return isAuthenticated ? null : RouteSettings(name: TRoutes.firstScreen);
+  // }
 
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/containers/rounded_container.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/layouts/headers/headers.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/layouts/sidebars/sidebar.dart';
 
 class DesktopLayout extends StatelessWidget {
   DesktopLayout({super.key, this.body});
@@ -17,7 +17,7 @@ class DesktopLayout extends StatelessWidget {
     child: IntrinsicHeight(
       child: Scaffold(
         body: Row(children: [
-      const Expanded(child: Drawer()),
+      const Expanded(child: TSidebar()),
       Expanded(
         flex: 5,
         child: Column(children: [

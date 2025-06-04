@@ -1,14 +1,13 @@
-import 'package:flutter_firebase_e_commerce_admin_panel/app.dart';
 
 class TRoutes {
 
-  static const firstScreen = '/';
-  static const secondScreen = '/second-screen/';
-  static const secondScreenWithUID = '/second-screen/:userId';
+  static const login = '/login';
+  static const forgetPassword = '/forgetPassword/';
+  static const resetPassword = '/resetPassword';
 
-  static const responsiveDesignScreen = '/responsive-design-screen/';
-
-
+  static List sidebarMenuItems = [
+    login, forgetPassword, resetPassword
+  ];
 /*
 static const login = '/login';
 static const forgetPassword = '/forgetPassword';

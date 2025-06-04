@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/layouts/headers/headers.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/layouts/sidebars/sidebar.dart';
 
 class MobileLayout extends StatelessWidget {
   MobileLayout({super.key, this.body});
@@ -14,7 +15,7 @@ class MobileLayout extends StatelessWidget {
     height: MediaQuery.of(context).size.height,
     child: Scaffold(
       key: scaffoldKey,
-      drawer: const Drawer(),
+      drawer: const TSidebar(),
       appBar: THeader(scaffoldKey: scaffoldKey,),
       body: IntrinsicHeight(
         child: body ?? const SizedBox(),
