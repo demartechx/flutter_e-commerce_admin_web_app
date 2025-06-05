@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/routes/routes.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/text_strings.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TLoginForm extends StatelessWidget {
@@ -49,7 +51,7 @@ class TLoginForm extends StatelessWidget {
               ],
             ),
             //forget password
-                TextButton(onPressed: (){}, child: Text(TTexts.forgetPassword))
+                TextButton(onPressed: ()=> Get.toNamed(TRoutes.forgetPassword), child: Text(TTexts.forgetPassword))
     
           ],
         ),

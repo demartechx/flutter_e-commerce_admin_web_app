@@ -2,8 +2,8 @@
 class TRoutes {
 
   static const login = '/login';
-  static const forgetPassword = '/forgetPassword/';
-  static const resetPassword = '/resetPassword';
+  static const forgetPassword = '/forget-password/';
+  static const resetPassword = '/reset-password/';
 
   static List sidebarMenuItems = [
     login, forgetPassword, resetPassword
