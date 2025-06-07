@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/bindings/general_bindings.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/routes/app_routes.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/routes/routes.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       getPages: TAppRoute.pages,
       initialRoute: TRoutes.login, // TRoutes.firstScreen,
+      initialBinding: GeneralBindings(),
       unknownRoute: GetPage(
           name: '/page-not-found',
           page: () => Scaffold(

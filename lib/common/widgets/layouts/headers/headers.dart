@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/images/t_rounded_image.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/data/repositories/authentication/authentication_repository.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/enums.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/image_strings.dart';
@@ -41,7 +42,7 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
           if(!TDeviceUtils.isDesktopScreen(context)) IconButton(onPressed: (){}, icon: Icon(Iconsax.search_normal)),
 
           //Notification Icon
-          IconButton(onPressed: (){}, icon: Icon(Iconsax.notification)),
+          IconButton(onPressed: (){ AuthenticationRepository.instance.logout(); }, icon: Icon(Iconsax.notification)),
 
           SizedBox(width: TSizes.spaceBtwItems / 2,),
 

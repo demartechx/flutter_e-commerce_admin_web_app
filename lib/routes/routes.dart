@@ -4,15 +4,16 @@ class TRoutes {
   static const login = '/login';
   static const forgetPassword = '/forget-password/';
   static const resetPassword = '/reset-password/';
+  static const dashboard = '/dashboard';
 
   static List sidebarMenuItems = [
-    login, forgetPassword, resetPassword
+    dashboard
   ];
 /*
 static const login = '/login';
 static const forgetPassword = '/forgetPassword';
 static const resetPassword = '/resetPassword';
-static const dashboard = '/dashboard';
+
 static const media = '/media';
 
 static const banners = '/banners';
