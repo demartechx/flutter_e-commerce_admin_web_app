@@ -87,4 +87,5 @@ class DefaultFirebaseOptions {
     authDomain: 'ecommerceapp-35b69.firebaseapp.com',
     storageBucket: 'ecommerceapp-35b69.appspot.com',
   );
+
 }

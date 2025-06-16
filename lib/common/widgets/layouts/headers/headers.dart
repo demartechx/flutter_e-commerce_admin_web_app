@@ -1,12 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/images/t_rounded_image.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/shimmers/shimmer.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/data/repositories/authentication/authentication_repository.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/features/authentication/controllers/user_controller.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/colors.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/enums.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/image_strings.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/sizes.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/device/device_utility.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class THeader extends StatelessWidget implements PreferredSizeWidget {
@@ -18,6 +21,8 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
+
     return Container(
       decoration: BoxDecoration(
         color: TColors.white,
@@ -49,22 +54,31 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
           // User Data
           Row(
             children: [
-              TRoundedImage(
-                width: 40,
-                height: 40,
-                padding: 2,
-                imageType: ImageType.asset, image: TImages.user,),
+              Obx(
+                ()=> TRoundedImage(
+                  width: 40,
+                  height: 40,
+                  padding: 2,
+                  imageType: controller.user.value.profilePicture.isNotEmpty ? ImageType.network : ImageType.asset, 
+                  image: controller.user.value.profilePicture.isNotEmpty ? controller.user.value.profilePicture : TImages.user,),
+              ),
                 SizedBox(width: TSizes.sm,),
 
                 //Name and Email
                 if(!TDeviceUtils.isMobileScreen(context))
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Coding with D', style: Theme.of(context).textTheme.titleLarge,),
-                    Text('demartechx@gmail.com', style: Theme.of(context).textTheme.labelMedium,),
-                  ],
+                Obx(
+                  ()=> Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      controller.loading.value ?
+                      TShimmerEffect(width: 50, height: 13) :
+                      Text(controller.user.value.fullName, style: Theme.of(context).textTheme.titleLarge,),
+                      controller.loading.value ?
+                      TShimmerEffect(width: 50, height: 13) :
+                      Text(controller.user.value.email, style: Theme.of(context).textTheme.labelMedium,),
+                    ],
+                  ),
                 )
             ],
           )

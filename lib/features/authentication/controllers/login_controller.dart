@@ -37,7 +37,7 @@ class LoginController extends GetxController {
   Future<void> emailAndPasswordSignIn() async {
     try {
           // Start Loading
-    TFullScreenLoader.openLoadingDialog('Registering Admin Account', TImages.docerAnimation);
+    TFullScreenLoader.openLoadingDialog('Signing in...', TImages.docerAnimation);
 
     // check internet connection
     final isConnected = await NetworkManager.instance.isConnected();
@@ -59,7 +59,7 @@ class LoginController extends GetxController {
     }
 
     // Login user using Email & Password Authentication
-    await AuthenticationRepository.instance.loginWithEmailAndPassword(TTexts.adminEmail, TTexts.adminPassword);
+    await AuthenticationRepository.instance.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
 
     // fetch user details and assign to usercontroller
     final user = await UserController.instance.fetchUserDetails();
@@ -67,12 +67,13 @@ class LoginController extends GetxController {
     TFullScreenLoader.stopLoading();
 
     //Redirect
-    if(user.role != AppRole.admin){
-      await AuthenticationRepository.instance.logout();
-      TLoaders.errorSnackBar(title: 'Not authorized', message: 'Access denied');
-    } else {
+    // if(user.role != AppRole.admin){
+    //   await AuthenticationRepository.instance.logout();
+    //   TLoaders.errorSnackBar(title: 'Not authorized', message: 'Access denied');
+    // } else {
       AuthenticationRepository.instance.screenRedirect();
-    }
+    //}
+    print(user.role);
 
     } catch (e) {
       TFullScreenLoader.stopLoading();
@@ -94,11 +95,11 @@ class LoginController extends GetxController {
     }
 
     // Register user using Email & Password Authentication
-    await AuthenticationRepository.instance.registerWithEmailAndPassword(TTexts.adminEmail, TTexts.adminPassword);
+    await AuthenticationRepository.instance.registerWithEmailAndPassword(email.text.trim(), password.text.trim());
 
     // Create admin record in the firestore
     final userRepository = Get.put(UserRepository());
-    await userRepository.createUser(UserModel(id: AuthenticationRepository.instance.authUser!.uid, username: 'Demartechx2', email: 'adeagbothompson10@gmail.com', firstName: 'Adeagbo 2', lastName: 'Matthew 2', phoneNumber: '09059689591', profilePicture: '', role: AppRole.admin));
+    await userRepository.createUser(UserModel(id: AuthenticationRepository.instance.authUser!.uid, username: 'Demartechx', email: email.text.trim(), firstName: 'Adeagbo', lastName: 'Matthew', phoneNumber: '09059689591', profilePicture: '', role: AppRole.admin));
 
     // Remove Loader
     TFullScreenLoader.stopLoading();
