@@ -26,6 +26,7 @@ dependencies:
   cached_network_image: ^3.4.1
   flutter_native_splash: ^2.4.6
   smooth_page_indicator: ^1.2.1
+  bar_chart: ^1.0.0+1
 
   # Web Specific
   web: ^1.1.1

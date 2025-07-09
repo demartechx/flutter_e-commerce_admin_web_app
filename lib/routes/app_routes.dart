@@ -1,6 +1,6 @@
 
 
-import 'package:flutter_firebase_e_commerce_admin_panel/features/authentication/screens/dashboard/dashbaord.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/features/shop/screens/dashboard/dashbaord.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/features/authentication/screens/forgot_password/forgot_password.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/features/authentication/screens/login/login.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/features/authentication/screens/reset_password/reset_password.dart';

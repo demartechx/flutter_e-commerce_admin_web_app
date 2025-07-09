@@ -20,9 +20,9 @@ class TSiteTemplate extends StatelessWidget {
         ) : desktop ?? Container(),
         tablet: useLayout ?  TabletLayout(
           body: tablet ?? desktop,
-        ) : tablet ?? desktop ?? Container(),
+        ) : tablet ?? desktop ?? Center(child: Text('Tablet'),),
         mobile: useLayout ?  MobileLayout(
           body: mobile ?? desktop,
-        ): mobile ?? desktop ?? Container()) ;
+        ): mobile ?? desktop ?? Center(child: Text('Mobile'),)) ;
   }
 }

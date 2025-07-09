@@ -10,35 +10,26 @@ class MobileLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-  child: SizedBox(
-    height: MediaQuery.of(context).size.height,
-    child: Scaffold(
-      key: scaffoldKey,
-      drawer: const TSidebar(),
-      appBar: THeader(scaffoldKey: scaffoldKey,),
-      body: IntrinsicHeight(
-        child: body ?? const SizedBox(),
-      ),
-    ),
-  ),
-);
-    
-    
-  //   SingleChildScrollView(
-  // child: ConstrainedBox(
-  //   constraints: BoxConstraints(
-  //     minHeight: MediaQuery.of(context).size.height,
-  //   ),
-  //   child: IntrinsicHeight(
-  //     child: Scaffold(
-  //     drawer: Drawer(),
-  //     appBar: THeader(),
-  //       body: body ?? SizedBox()
-  //   )
 
-  //   ),
-  // ),
-  //   );
+    return SingleChildScrollView(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: MediaQuery.of(context).size.height,
+        ),
+        child: IntrinsicHeight(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Scaffold(
+              key: scaffoldKey,
+              drawer: const TSidebar(),
+              appBar: THeader(
+                scaffoldKey: scaffoldKey,
+              ),
+              body: body ?? const SizedBox(),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

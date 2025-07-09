@@ -12,18 +12,22 @@ class TabletLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-  child: SizedBox(
-    height: MediaQuery.of(context).size.height,
-    child: Scaffold(
+
+        return SingleChildScrollView(
+  child: IntrinsicHeight(
+    child: ConstrainedBox(
+      constraints: BoxConstraints(
+        minHeight: MediaQuery.of(context).size.height,
+      ),
+      child: Scaffold(
       key: scaffoldKey,
       drawer: const TSidebar(),
       appBar: THeader(scaffoldKey: scaffoldKey,),
-      body: IntrinsicHeight(
-        child: body ?? const SizedBox(),
-      ),
+      body: body ?? const SizedBox(),
+    ),
     ),
   ),
-);
+    );
+
   }
 }
