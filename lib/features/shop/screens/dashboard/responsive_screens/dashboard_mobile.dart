@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/containers/rounded_container.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/features/shop/screens/dashboard/table/data_table.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/features/shop/screens/dashboard/widgets/dashboard_card.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/features/shop/screens/dashboard/widgets/order_status_piechart.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/features/shop/screens/dashboard/widgets/weekly_sales.dart';
@@ -62,7 +63,16 @@ class DashboardMobileScreen extends StatelessWidget {
               TWeeklySalesGraph(),
 
               ///Orders
-              TRoundedContainer(),
+                        TRoundedContainer(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Recent Orders', style: Theme.of(context).textTheme.headlineSmall,),
+                              SizedBox(height: TSizes.spaceBtwSections,),
+                              DashboardOrderTable()
+                            ],
+                          ),
+                        ),
               SizedBox(
                 height: TSizes.spaceBtwSections,
               ),

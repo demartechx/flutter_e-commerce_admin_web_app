@@ -55,9 +55,13 @@ class TPaginatedDataTable extends StatelessWidget {
       // Set the dynamic height of the PaginatedDataTable
       height: tableHeight,
       child: Theme(
-        // Use to set the Backend color
-        //data: Theme.of(context).copyWith(cardTheme:  CardTheme(color: Colors.white, elevation: 0)),
-        data: Theme.of(context),
+        // Use to set the Background color
+data: Theme.of(context).copyWith(
+  cardTheme: CardThemeData(
+    color: Colors.white,
+    elevation: 0,
+  ),
+),        //data: Theme.of(context),
         child: PaginatedDataTable2(
           source: source,
           columns: columns,
