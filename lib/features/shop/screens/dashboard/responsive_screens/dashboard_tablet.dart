@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/common/widgets/containers/rounded_container.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/features/shop/screens/dashboard/widgets/dashboard_card.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/features/shop/screens/dashboard/widgets/order_status_piechart.dart';
+import 'package:flutter_firebase_e_commerce_admin_panel/features/shop/screens/dashboard/widgets/weekly_sales.dart';
 import 'package:flutter_firebase_e_commerce_admin_panel/utils/constants/sizes.dart';
 
 
@@ -37,6 +40,25 @@ class DashboardTabletScreen extends StatelessWidget {
                   Expanded(child: TDashboardCard(title: 'Visitors', subtitle: '25,035', stats: 2,)),
 
                 ],
+              ),
+
+
+
+              SizedBox(
+                height: TSizes.spaceBtwSections,
+              ),
+              TWeeklySalesGraph(),
+
+              ///Orders
+              TRoundedContainer(),
+              SizedBox(
+                height: TSizes.spaceBtwSections,
+              ),
+
+              ///Pie Chart
+              OrderStatusPieChart(),
+              SizedBox(
+                height: TSizes.spaceBtwSections,
               ),
             ],
           )),

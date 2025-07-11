@@ -13,21 +13,18 @@ class TResponsiveWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(30),
-          child: LayoutBuilder(
-            builder: (_, constraints) {
-              if(constraints.maxWidth >= TSizes.desktopScreenSize){
-                return desktop;
-
-              } else if(constraints.maxWidth < TSizes.desktopScreenSize && constraints.maxWidth >= TSizes.tabletScreenSize){
-                return tablet;
-              }else{
-               return mobile;
-              }
+        child: LayoutBuilder(
+          builder: (_, constraints) {
+            if(constraints.maxWidth >= TSizes.desktopScreenSize){
+              return desktop;
+        
+            } else if(constraints.maxWidth < TSizes.desktopScreenSize && constraints.maxWidth >= TSizes.tabletScreenSize){
+              return tablet;
+            }else{
+             return mobile;
             }
-            )
-        ),
+          }
+          ),
       ),
     );
   }
