@@ -5,7 +5,7 @@ import 'package:flutter_firebase_e_commerce_admin_panel/utils/device/device_util
 import 'package:get/get.dart';
 
 class SidebarController extends GetxController {
-  final activeItem = TRoutes.login.obs;
+  final activeItem = TRoutes.dashboard.obs;
   final hoverItem = ''.obs;
 
   void changeActiveItem(String route) => activeItem.value = route;

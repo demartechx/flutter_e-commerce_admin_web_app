@@ -35,8 +35,8 @@ class TSidebar extends StatelessWidget {
                   Text('MENU', style: Theme.of(context).textTheme.bodySmall!.apply(letterSpacingDelta: 1.2),),
 
                   //Menu Items
-                  // TMenuItem(route: TRoutes.firstScreen, icon: Iconsax.status, itemName: 'Dashboard',),
-                  // TMenuItem(route: TRoutes.secondScreen, icon: Iconsax.image, itemName: 'Media',),
+                  TMenuItem(route: TRoutes.dashboard, icon: Iconsax.status, itemName: 'Dashboard',),
+                  TMenuItem(route: TRoutes.media, icon: Iconsax.image, itemName: 'Media',),
                   // TMenuItem(route: TRoutes.responsiveDesignScreen, icon: Iconsax.picture_frame, itemName: 'Banners',),
 
                 ],
